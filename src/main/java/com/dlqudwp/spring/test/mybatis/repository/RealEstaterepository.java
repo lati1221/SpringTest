@@ -40,5 +40,16 @@ public interface RealEstaterepository {
 			int rentPrice);
 	
 	
+	public int updateRealEstate(
+			@Param("id") int id
+			, @Param("type") String type
+			, @Param("price") int price);
+			
+		
+	public int deleteRealEstate(@Param("id") int id);
+		
+	
+	
+	
 }
 	

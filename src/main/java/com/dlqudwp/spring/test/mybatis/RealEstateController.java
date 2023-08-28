@@ -76,11 +76,28 @@ public class RealEstateController {
 		
 		return "수행결과 : " + count;
 		
-		
-		
+	
 		
 	}
 	
+	@RequestMapping("/mybatis/realestate/update")
+	@ResponseBody
+	public String updateRealEstate() {
+		
+		// id가 21인 매물 정보를 type 전세로 바꾸고 보증금을 70000으로 변경
+		int count = realestateService.updateRealEstate(21, "전세", 70000);
+		
+		return "수행 결과 : " + count;
+		
+	}
+	
+	@RequestMapping("/mybatis/realestate/delete")
+	@ResponseBody
+	public String deleteRealEstate(@RequestParam("id") int id) {
+		int count = realestateService.deleteRealEstate(id);
+		
+		return "수행 결과 : " + count;
+	}
 	
 	
 	
