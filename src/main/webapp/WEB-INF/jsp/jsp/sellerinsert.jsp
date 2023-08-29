@@ -7,11 +7,11 @@
 <title>판매자 추가</title>
 </head>
 <body>
-	<form method="post" action="jsp/seller/insert">
+	<form method="post" action="/jsp/seller/create">
 		<h1>판매자 추가</h1>
-		<label>닉네임</label><br><insert type="text"><br>
-		<label>프로필 사진 url</label> <br> <insert type="text"><br>
-		<label>온도</label><br><insert type="text"><br>
+		<label>닉네임</label><input type="text" name="nickname"><br>
+		<label>프로필 사진 url</label> <input type="text" name="profileImage"><br>
+		<label>온도</label><input type="text" name="temperature"><br>
 		<button type="submit">추가</button>
 	</form>
 
