@@ -2,31 +2,47 @@ package com.dlqudwp.spring.test.realtor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dlqudwp.spring.test.realtor.domain.Realtor;
 import com.dlqudwp.spring.test.realtor.service.RealtorService;
 
-@RequestMapping("/realtor")
+
 @Controller
 public class RealtorController {
 	
 	@Autowired
 	private RealtorService realtorService;
 	
-	@PostMapping("/create")
-	@ResponseBody
+	@GetMapping("/realtor/create")
+	
 	public String addRealtor(
 			@RequestParam("office") String office
 			, @RequestParam("phoneNumber") String phoneNumber
 			, @RequestParam("address") String address
-			, @RequestParam("grade") String grade) {
+			, @RequestParam("grade") String grade
+			, Model model) {
 		
-		int count = realtorService.addRealtor(office, phoneNumber, address, grade);
+		Realtor realtor = new Realtor();
+		realtor.setOffice(office);
+		realtor.setPhoneNumber(phoneNumber);
+		realtor.setAddress(address);
+		realtor.setGrade(grade);
 		
-		return "수행결과 : " + count;
+		int count = realtorService.addRealtor(realtor);
+		
+		model.addAttribute("realtor", realtor);
+		
+		return "jsp/realtorinfo";
+	}
+	
+	@GetMapping("/realtor/insert")
+	public String realtorInsert() {
+		return "jsp/realtorinsert";
+		
 	}
 	
 

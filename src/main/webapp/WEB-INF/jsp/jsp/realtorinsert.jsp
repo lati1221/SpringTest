@@ -8,7 +8,7 @@
 </head>
 <body>
 	
-	<form method="post" action="/realtor/create">
+	<form method="get" action="/realtor/create">
 		<h1>공인중개사 추가</h1>
 		
 		<label>상호명</label><input type="text" name="office"><br>

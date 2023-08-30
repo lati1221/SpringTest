@@ -7,7 +7,8 @@
  <mapper namespace="com.dlqudwp.spring.test.realtor.repository.RealtorRepository">
  
  	<insert id="insertRealtor"
- 	parameterType="map">
+ 	parameterType="com.dlqudwp.spring.test.realtor.domain.Realtor"
+ 	useGeneratedKeys="true" keyProperty="id">
  		INSERT INTO
  			`realtor`
  		(
