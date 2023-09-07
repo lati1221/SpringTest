@@ -10,12 +10,11 @@ import com.dlqudwp.spring.test.ajax.domain.Favorite;
 @Repository
 public interface FavoriteRepository {
 
-	public List<Favorite> selectFavoriteList();
+public List<Favorite> selectFavoriteList();
 	
-	public insertFavorite(
+	public int insertFavorite(
 			@Param("name") String name
 			, @Param("url") String url);
-	
 	
 	
 	
