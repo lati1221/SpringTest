@@ -28,7 +28,7 @@
 		
 		<div class="container text-center mt-3">
 			<h2>예약 목록 보기</h2>
-			<table class="table text-center">
+			<table class="table text-center mt-3">
 				<thead>
 					<tr>
 						<th>이름</th>
@@ -40,14 +40,24 @@
 					</tr>
 				</thead>
 				<tbody>
+					<c:forEach var="reservationList" items="${reservationList }">
 					<tr>
-						<td>1</td>
-						<td>2</td>
-						<td>3</td>
-						<td>4</td>
-						<td>5</td>
-						<td>6</td>
+						<td>${reservationList.name }</td>
+						<td><fmt:formatDate value="${reservationList.date }" pattern="yyyy년 MM월 dd일" /></td>
+						<td>${reservationList.day }</td>
+						<td>${reservationList.headcount }</td>
+						<td>${reservationList.phoneNumber }</td>
+						<c:choose>
+						<c:when test="${reservationList.state eq '대기중' }">
+						<td class="text-primary">${reservationList.state }</td>
+						</c:when>
+						<c:when test="${reservationList.state eq '확정' }">
+						<td class="text-success">${reservationList.state }</td>
+						</c:when>
+						</c:choose>
+						<td><button type="button" class="btn btn-danger btn-sm">삭제</button></td>
 					</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>
