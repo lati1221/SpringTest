@@ -25,5 +25,8 @@ public class ReservationController {
 		
 		return "ajax/reservation/list";
 	}
+	
+	
+	
 
 }
