@@ -2,7 +2,6 @@ package com.dlqudwp.spring.test.jpa.domain;
 
 import java.util.Date;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,23 +16,30 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Getter
-@Table(name="company")
+@Table(name="job")
 @Entity
-public class Company {
+public class Job {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	private String name;
+	@Column(name="companyId")
+	private int companyId;
 	
-	private String business;
-	private String scale;
-	private int headcount;
+	private String position;
+	private String responsibilities;
+	private String qualification;
+	private String type;
+	private String region;
+	private int salary;
+	private Date deadline;
 	
 	@UpdateTimestamp
 	@Column(name="createdAt", updatable=false)
@@ -42,8 +48,5 @@ public class Company {
 	@UpdateTimestamp
 	@Column(name="updatedAt")
 	private Date updatedAt;
-	
-	
-	
 	
 }
